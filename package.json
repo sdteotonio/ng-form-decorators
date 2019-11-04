@@ -1,8 +1,16 @@
 {
   "name": "ng-form-decorators",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "author": {
+    "email": "sdteotonio@outlook.com.br",
+    "name": "Sergio Davi"
+  },
+  "repository": {
+    "url": "https://github.com/sdteotonio/ng-form-decorators.git"
+  },
   "peerDependencies": {
     "@angular/common": "^8.0.3",
-    "@angular/core": "^8.0.3"
+    "@angular/core": "^8.0.3",
+    "reflect-metadata": "^0.1.13"
   }
 }
