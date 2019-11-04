@@ -1,24 +1,45 @@
-# NgFormDecorators
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+## Um utilitário para auxiliar a criação de formulários Angular através de Classes, utilizando anotações TypeScript.
 
-## Code scaffolding
+First the definitions in the tsconfig.json file must be updated:
 
-Run `ng generate component component-name --project ng-form-decorators` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ng-form-decorators`.
-> Note: Don't forget to add `--project ng-form-decorators` or else it will be added to the default project in your `angular.json` file. 
+    {
+	    "compilerOptions":{
+			...
+			"emitDecoratorMetadata": true,
+		    "experimentalDecorators": true
+		}
+	    
+    }
+ Obs: **The model must be initialized with default values to perform the mapping and build the JavaScript models.**
+ 
+Now we can define a template, and use the annotations available for form configuration:
 
-## Build
+	import { NgFormValidators } from 'ng-form-decorators';
+	class User {
+		name: string = '';
+		@NgFormValidators([Validators.required, Validators.max(45)])
+		idade: number = null;
+	}
 
-Run `ng build ng-form-decorators` to build the project. The build artifacts will be stored in the `dist/` directory.
+ 
+Use NgFormGroup to define a FormGroup as an attribute of another FormGroup through the building model.
 
-## Publishing
+	import { NgFormValidators, NgFormGroup } from 'ng-form-decorators';
+    class  Home {
+		@NgFormValidators([Validators.required])
+		number:  number  =  null;
+		street:  string  =  null;
+		@NgFormGroup()
+		user:  User;
+	}
 
-After building your library with `ng build ng-form-decorators`, go to the dist folder `cd dist/ng-form-decorators` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test ng-form-decorators` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+At the end of the definitions, define a variable in the component to represent FormGroup and annotate it with NgFormModel defining the authoring template, and then a form will be built and injected into the variable.
+	
+	import { NgFormModel } from 'ng-form-decorators';
+	import { Home } from './models/home.model.ts';
+	export  class  AppComponent  {
+	
+		@NgFormModel(Home)
+		formHome:  FormGroup;
+	}
