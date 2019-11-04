@@ -1,10 +1,11 @@
 {
   "name": "ng-form-decorators",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "email": "sdteotonio@outlook.com.br",
     "name": "Sergio Davi"
   },
+  "license": "MIT",
   "repository": {
     "url": "https://github.com/sdteotonio/ng-form-decorators.git"
   },
