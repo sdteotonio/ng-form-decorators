@@ -1,5 +1,5 @@
 
-## Um utilitário para auxiliar a criação de formulários Angular através de Classes, utilizando anotações TypeScript.
+## A utility to assist in creating Angular forms through Classes using TypeScript annotations.
 
 First the definitions in the tsconfig.json file must be updated:
 
